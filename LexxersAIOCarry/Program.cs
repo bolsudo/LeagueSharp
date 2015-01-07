@@ -6,7 +6,7 @@ namespace UltimateCarry
 {
 	class Program
 	{
-		public const int LocalVersion = 79; //for update
+		public const int LocalVersion = 80; //for update
         public const String Version = "2.0.*";
 
 		public static Champion Champion;
@@ -24,7 +24,7 @@ namespace UltimateCarry
 		private static void Game_OnGameLoad(EventArgs args)
 		{
 			//AutoUpdater.InitializeUpdater();
-			Chat.Print("Ultimate Carry Version by Lexxes updated by Bolsudo for patch 4.21 " + LocalVersion + " load ...");
+			Chat.Print("Ultimate Carry Version by Lexxes updated by Bolsudo for patch 4.21 loading ...");
 			Helper = new Helper();
 
 			Menu = new Menu("UltimateCarry", "UltimateCarry_" + ObjectManager.Player.ChampionName, true);
@@ -60,7 +60,8 @@ namespace UltimateCarry
 			}
 					
 			Menu.AddToMainMenu();
-			Chat.Print("Ultimate Carry loaded! (If something is not working please report it)");
+            Chat.Print("Teemo,Riven and Jax Added Not Tested");
+            Chat.Print("Ultimate Carry loaded! (If something is not working please report it)");
 		}
 	}
 }

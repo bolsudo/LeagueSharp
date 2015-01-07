@@ -70,6 +70,7 @@
     <Compile Include="Gangplank.cs" />
     <Compile Include="Gnar.cs" />
     <Compile Include="HtmlColor.cs" />
+    <Compile Include="Jax.cs" />
     <Compile Include="Khazix.cs" />
     <Compile Include="Lucian.cs" />
     <Compile Include="Lulu.cs" />
@@ -90,7 +91,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="RecallInfo.cs" />
+    <Compile Include="Riven.cs" />
     <Compile Include="Swain.cs" />
+    <Compile Include="Teemo.cs" />
     <Compile Include="Thresh.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="TwistedFate.cs" />

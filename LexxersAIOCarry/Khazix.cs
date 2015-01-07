@@ -25,11 +25,6 @@ namespace UltimateCarry
 			PluginLoaded();
 		}
 
-        private void Orbwalking_AfterAttack(AttackableUnit unit, AttackableUnit target)
-        {
-            throw new NotImplementedException();
-        }
-
 		private void LoadMenu()
 		{
 			Program.Menu.AddSubMenu(new Menu("TeamFight", "TeamFight"));
@@ -89,7 +84,7 @@ namespace UltimateCarry
 					Utility.DrawCircle(ObjectManager.Player.Position, E.Range, E.IsReady() ? Color.Green : Color.Red);
 		}
 
-		private void Orbwalking_AfterAttack(Obj_AI_Base unit, Obj_AI_Base target)
+        private void Orbwalking_AfterAttack(AttackableUnit unit, AttackableUnit target)
 		{
 			switch(Program.Orbwalker.ActiveMode)
 			{
