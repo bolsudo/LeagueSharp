@@ -210,12 +210,12 @@ namespace UltimateCarry
 
         bool OkToUlt()
         {
-            if (Program.Helper.EnemyTeam.Any(x => x.Distance(ObjectManager.Player) < 500)) //any enemies around me?
+            if (Program.Helper.EnemyTeam.Any(x => x.Distance(ObjectManager.Player.ServerPosition) < 500)) //any enemies around me?
                 return true;
 
             Vector3 mousePos = Game.CursorPos;
 
-            var enemiesNearMouse = Program.Helper.EnemyTeam.Where(x => x.Distance(ObjectManager.Player) < _spellR.Range && x.Distance(mousePos) < 650);
+            var enemiesNearMouse = Program.Helper.EnemyTeam.Where(x => x.Distance(ObjectManager.Player.ServerPosition) < _spellR.Range && x.Distance(mousePos) < 650);
 
             if (enemiesNearMouse.Count() > 0)
             {

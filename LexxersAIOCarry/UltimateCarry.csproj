@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Ahri.cs" />
     <Compile Include="Amumu.cs" />
+    <Compile Include="AutoBushRevealer.cs" />
     <Compile Include="AutoUpdater.cs" />
     <Compile Include="Azir.cs" />
     <Compile Include="Caitlyn.cs" />
@@ -96,6 +97,7 @@
     <Compile Include="Teemo.cs" />
     <Compile Include="Thresh.cs" />
     <Compile Include="Helper.cs" />
+    <Compile Include="Tristana.cs" />
     <Compile Include="TwistedFate.cs" />
     <Compile Include="Xerath.cs" />
     <Compile Include="Zed.cs" />

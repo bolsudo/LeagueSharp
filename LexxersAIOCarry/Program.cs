@@ -6,7 +6,7 @@ namespace UltimateCarry
 {
 	class Program
 	{
-		public const int LocalVersion = 80; //for update
+		public const int LocalVersion = 81; //for update
         public const String Version = "2.0.*";
 
 		public static Champion Champion;
@@ -44,7 +44,7 @@ namespace UltimateCarry
 				Orbwalker = new Orbwalking.Orbwalker(orbwalking);
 				Menu.Item("FarmDelay").SetValue(new Slider(0, 0, 200));
 			}
-
+            var bushRevealer = new AutoBushRevealer();
 		//var overlay = new Overlay();
 		
 			try
@@ -60,7 +60,7 @@ namespace UltimateCarry
 			}
 					
 			Menu.AddToMainMenu();
-            Chat.Print("Teemo,Riven and Jax Added Not Tested");
+            Chat.Print("You have the latest version.");
             Chat.Print("Ultimate Carry loaded! (If something is not working please report it)");
 		}
 	}
