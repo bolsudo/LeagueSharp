@@ -49,7 +49,7 @@ class Program
         Tiamat = new Items.Item((int)ItemId.Tiamat_Melee_Only, 500);
 
 
-        Menu = new Menu("Bolsudo Nasus", Player.ChampionName, true);
+        Menu = new Menu("Beasty Nasus", Player.ChampionName, true);
 
         Menu orbwalkerMenu = Menu.AddSubMenu(new Menu("Orbwalker", "Orbwalker"));
 
