@@ -1,1 +1,2 @@
 C:\Users\WORK\Desktop\basura\leaguesharp\UC2\8E9B8FEB\trunk\LexxersAIOCarry\bin\Release\UltimateCarry.exe.config
+C:\Users\WORK\Desktop\basura\leaguesharp\UC2\8E9B8FEB\LeagueSharp\LexxersAIOCarry\bin\Release\UltimateCarry.exe.config
