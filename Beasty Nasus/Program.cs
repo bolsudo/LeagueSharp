@@ -231,7 +231,7 @@ class Program
         // check if E ready
         var target = Program.Orbwalker.GetTarget();
 
-        if (Q.IsReady() && target.IsValidTarget(650))
+        if (Q.IsReady() && target.IsValidTarget(300))
         {
             {
                 Q.Cast();
@@ -245,7 +245,7 @@ class Program
     private static void QClear()
     {
         var target = Program.Orbwalker.GetTarget();
-        if (!Menu.Item("laneQ").GetValue<bool>() && Q.IsReady() && target.IsValidTarget(650))
+        if (!Menu.Item("laneQ").GetValue<bool>() && Q.IsReady() && target.IsValidTarget(300))
             return;
 
         // check if E ready
@@ -265,13 +265,13 @@ class Program
         if (Minions.Count == 0) return;
 
 
-        if (!Menu.Item("clearE").GetValue<bool>() && E.IsReady() && ManaPercentage >= sliderValue)
+        if (!Menu.Item("clearE").GetValue<bool>() && E.IsReady())
             return;
 
         // check if E ready
         var eposition =  MinionManager.GetBestCircularFarmLocation(Minions.Select(minion => minion.ServerPosition.To2D()).ToList(), E.Width, E.Range);
 
-        if (E.IsReady())
+        if (E.IsReady() && ManaPercentage <= sliderValue)
         {
             {
                 E.Cast(eposition.Position);
@@ -440,7 +440,7 @@ class Program
         Obj_AI_Hero target = TargetSelector.GetTarget(700, TargetSelector.DamageType.Magical);
 
 
-        if (E.IsReady() && ManaPercentage >= sliderValue)
+        if (E.IsReady() && ManaPercentage <= sliderValue)
         {
 
             if (target.IsValidTarget(E.Range))
@@ -460,7 +460,7 @@ class Program
         // check if E ready
         var target = Program.Orbwalker.GetTarget();
 
-        if (Q.IsReady() && target.IsValidTarget(650))
+        if (Q.IsReady() && target.IsValidTarget(350))
         {
             {
                 Q.Cast();
