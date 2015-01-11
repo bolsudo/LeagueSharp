@@ -64,6 +64,7 @@ class Program
         Menu LaneMenu = Menu.AddSubMenu(new Menu("Lane Clear", "LaneS"));
         Menu LastMenu = Menu.AddSubMenu(new Menu("LastHit", "LastS"));
         Menu UltMenu = Menu.AddSubMenu(new Menu("Ultimate", "UltS"));
+        Menu WMenu = Menu.AddSubMenu(new Menu("W Use ChampList", "WS"));
         Menu MiscMenu = Menu.AddSubMenu(new Menu("Misc", "MiscS"));
         Menu KsMenu = Menu.AddSubMenu(new Menu("Killing Steal", "KillS"));
 
@@ -90,6 +91,14 @@ class Program
         UltMenu.AddItem(new MenuItem("AutoRLW", "Auto R Below % HP").SetValue(new Slider(10, 1, 100)));
         UltMenu.AddItem(new MenuItem("REAop", "Disable Auto R if # Enemies Around??").SetValue(false));
         UltMenu.AddItem(new MenuItem("AutoREA", "Auto R if # enemies around").SetValue(new Slider(3, 1, 5)));
+
+        WMenu.AddItem(new MenuItem("sep0", "Use W On:"));
+        foreach (var Champ in ObjectManager.Get<Obj_AI_Hero>().Where(champ => champ.IsEnemy))
+        {
+            WMenu.AddItem(
+                new MenuItem("noWon" + Champ.BaseSkinName, string.Format("W {0}", Champ.BaseSkinName)).SetValue(true));
+        }
+        
         MiscMenu.AddItem(new MenuItem("GapW", "Use W for AntiGapClosers").SetValue(true));
 
         Menu.AddToMainMenu();
@@ -99,7 +108,7 @@ class Program
 
         Game.OnGameUpdate += Game_OnGameUpdate;
 
-        Game.PrintChat("Beasty Nasus 1.0 By Bolsudo.");
+        Game.PrintChat("Beasty Nasus 1.01 By Bolsudo.");
         Game.PrintChat("Please post bugs in the thread. Thank you");
     }
 
@@ -222,7 +231,17 @@ class Program
         }
     }
 
+    private static void WUseNo()
+    {
 
+        foreach (var aChamp in from aChamp in ObjectManager.Get<Obj_AI_Hero>()
+                               where (aChamp.IsEnemy) && (ObjectManager.Player.ServerPosition.Distance(aChamp.Position) < W.Range)
+                               where Menu.Item("noWon" + aChamp.BaseSkinName).GetValue<bool>() && W.IsReady()
+                               select aChamp)
+        {
+            W.CastOnUnit(aChamp);
+        }
+    }
     private static void QLastHit2()
     {
         if (!Menu.Item("lastQ").GetValue<bool>())
@@ -238,24 +257,25 @@ class Program
             }
         }
     }
-    
-    
 
-    
+
+
+
     private static void QClear()
     {
         var target = Program.Orbwalker.GetTarget();
-        if (!Menu.Item("laneQ").GetValue<bool>() && Q.IsReady() && target.IsValidTarget(300))
+        if (!Menu.Item("laneQ").GetValue<bool>() && Q.IsReady() && target.IsValidTarget(400))
             return;
+        
+            // check if E ready
+            foreach (var enemy in ObjectManager.Get<Obj_AI_Minion>().Where(minion => minion.IsValidTarget() && minion.Health <= (ObjectManager.Player.GetSpellDamage(minion, SpellSlot.Q))))
+            {
 
-        // check if E ready
-        foreach (var enemy in ObjectManager.Get<Obj_AI_Minion>().Where(minion => minion.IsValidTarget() && minion.Health <= (ObjectManager.Player.GetSpellDamage(minion, SpellSlot.Q))))
-
-        {
-            
                 Q.Cast();
-            
-        }
+
+
+            }
+        
     }
     private static void EClear()
     {
@@ -380,7 +400,7 @@ class Program
         // check if E ready
         Obj_AI_Hero target = TargetSelector.GetTarget(700, TargetSelector.DamageType.Physical);
         
-        if (Q.IsReady() && target.IsValidTarget(650))
+        if (Q.IsReady() && target.IsValidTarget(300))
             {
                 {
                     Q.Cast();
@@ -394,13 +414,14 @@ class Program
             return;
 
         // check if E ready
-        if (W.IsReady())
-            foreach (var enemy in ObjectManager.Get<Obj_AI_Hero>().Where(hero => hero.IsValidTarget()))
+        foreach (var enemy2 in ObjectManager.Get<Obj_AI_Hero>().Where(hero => hero.IsValidTarget()))
+        if (W.IsReady() && Menu.Item("noWon" + enemy2.BaseSkinName).GetValue<bool>())
+
         {
             // check if we found a valid target in range
             {
                 
-                W.CastOnUnit(enemy);        
+                W.CastOnUnit(enemy2);        
             }
         }
     }
@@ -454,13 +475,13 @@ class Program
     }
     private static void QHarass()
     {
-        if (!Menu.Item("lastQ").GetValue<bool>())
+        if (!Menu.Item("harassQ").GetValue<bool>())
             return;
 
         // check if E ready
         var target = Program.Orbwalker.GetTarget();
 
-        if (Q.IsReady() && target.IsValidTarget(350))
+        if (Q.IsReady() && target.IsValidTarget(300))
         {
             {
                 Q.Cast();
