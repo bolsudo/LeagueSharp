@@ -142,7 +142,7 @@ namespace UltimateCarry
 					if (Program.Menu.Item("useE_TeamFight").GetValue<bool>())
 						Cast_E("ToMe");
 					if(Program.Menu.Item("useR_TeamFight").GetValue<Slider>().Value >= 1)
-						if (Utility.CountEnemysInRange((int) R.Range) >= Program.Menu.Item("useR_TeamFight").GetValue<Slider>().Value)
+                        if (Utility.CountEnemiesInRange((int)R.Range) >= Program.Menu.Item("useR_TeamFight").GetValue<Slider>().Value)
 							R.Cast();
 					break;
 				case Orbwalking.OrbwalkingMode.Mixed:
@@ -172,7 +172,7 @@ namespace UltimateCarry
 			if (!W.IsReady())
 				return;
 			var bestcastposition = new Vector3(0f, 0f, 0f);
-            foreach (var friend in Program.Helper.OwnTeam.Where(hero => !hero.IsMe && hero.Distance(ObjectManager.Player) <= W.Range + 300 && hero.Distance(ObjectManager.Player) <= W.Range - 300 && hero.Health / hero.MaxHealth * 100 >= 20 && Utility.CountEnemysInRange(150) >= 1))
+            foreach (var friend in Program.Helper.OwnTeam.Where(hero => !hero.IsMe && hero.Distance(ObjectManager.Player) <= W.Range + 300 && hero.Distance(ObjectManager.Player) <= W.Range - 300 && hero.Health / hero.MaxHealth * 100 >= 20 && Utility.CountEnemiesInRange(150) >= 1))
 			{
 				var center = ObjectManager.Player.Position;
 				const int points = 36;

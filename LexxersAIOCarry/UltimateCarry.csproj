@@ -104,29 +104,20 @@
     <Compile Include="Zyra.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="clipper_library, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Users\WORK\Desktop\basura\leaguesharp\NEW\2.0\LeagueSharp\\System\clipper_library.dll</HintPath>
+    <Reference Include="clipper_library">
+      <HintPath>..\..\..\..\NEW\2.0\LeagueSharp-nocast\System\clipper_library.dll</HintPath>
     </Reference>
-    <Reference Include="LeagueSharp, Version=1.0.0.25, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Users\WORK\Desktop\basura\leaguesharp\NEW\2.0\LeagueSharp\\System\LeagueSharp.dll</HintPath>
+    <Reference Include="LeagueSharp">
+      <HintPath>..\..\..\..\NEW\2.0\LeagueSharp-nocast\System\LeagueSharp.dll</HintPath>
     </Reference>
-    <Reference Include="LeagueSharp.Common, Version=1.0.0.2, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Users\WORK\Desktop\basura\leaguesharp\NEW\2.0\LeagueSharp\\System\LeagueSharp.Common.dll</HintPath>
+    <Reference Include="LeagueSharp.Common">
+      <HintPath>..\..\..\..\NEW\2.0\LeagueSharp-nocast\System\LeagueSharp.Common.dll</HintPath>
     </Reference>
-    <Reference Include="SharpDX, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Users\WORK\Desktop\basura\leaguesharp\NEW\2.0\LeagueSharp\\System\SharpDX.dll</HintPath>
+    <Reference Include="SharpDX">
+      <HintPath>..\..\..\..\NEW\2.0\LeagueSharp-nocast\System\SharpDX.dll</HintPath>
     </Reference>
-    <Reference Include="SharpDX.Direct3D9, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Users\WORK\Desktop\basura\leaguesharp\NEW\2.0\LeagueSharp\\System\SharpDX.Direct3D9.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpDX.Toolkit, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Users\WORK\Desktop\basura\leaguesharp\NEW\2.0\LeagueSharp\\System\SharpDX.Toolkit.dll</HintPath>
+    <Reference Include="SharpDX.Direct3D9">
+      <HintPath>..\..\..\..\NEW\2.0\LeagueSharp-nocast\System\SharpDX.Direct3D9.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

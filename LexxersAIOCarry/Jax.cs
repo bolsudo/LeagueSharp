@@ -128,14 +128,14 @@ namespace UltimateCarry
 		{
 			if(!R.IsReady() || Program.Menu.Item("useR_TeamFight").GetValue<Slider>().Value == 0)
 				return;
-			if(Utility.CountEnemysInRange(500) >= Program.Menu.Item("useR_TeamFight").GetValue<Slider>().Value)
+            if (Utility.CountEnemiesInRange(500) >= Program.Menu.Item("useR_TeamFight").GetValue<Slider>().Value)
 				R.Cast();
 		}
 
 		private void CastE()
 		{
 			if(E.IsReady() && Environment.TickCount - E.LastCastAttemptT <= 5000)
-				if(Utility.CountEnemysInRange((int)E.Range) >= 1)
+                if (Utility.CountEnemiesInRange((int)E.Range) >= 1)
 					E.Cast();
 			
 			if (!E.IsReady()) 
@@ -145,14 +145,14 @@ namespace UltimateCarry
 			{
 				case Orbwalking.OrbwalkingMode.Combo:
 					if(Program.Menu.Item("useE_TeamFight").GetValue<bool>())
-						if(Q.IsReady() && (Utility.CountEnemysInRange((int)Q.Range + +200) >= 1) ||
-						   (Utility.CountEnemysInRange((int)E.Range + 100) >= 1))
+                        if (Q.IsReady() && (Utility.CountEnemiesInRange((int)Q.Range + +200) >= 1) ||
+                           (Utility.CountEnemiesInRange((int)E.Range + 100) >= 1))
 							E.Cast();
 					break;
 				case Orbwalking.OrbwalkingMode.Mixed:
 					if(Program.Menu.Item("useE_Harass").GetValue<bool>())
-					if(Q.IsReady() && (Utility.CountEnemysInRange((int)Q.Range + +200) >= 1) ||
-					   (Utility.CountEnemysInRange((int)E.Range + 100) >= 1))
+                        if (Q.IsReady() && (Utility.CountEnemiesInRange((int)Q.Range + +200) >= 1) ||
+                       (Utility.CountEnemiesInRange((int)E.Range + 100) >= 1))
 						E.Cast();
 					break;
 				case Orbwalking.OrbwalkingMode.LaneClear:

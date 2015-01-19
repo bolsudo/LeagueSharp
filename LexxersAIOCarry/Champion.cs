@@ -207,7 +207,7 @@ namespace UltimateCarry
 		{
 			if(!spell.IsReady() || !ManaManagerAllowCast(spell))
 				return;
-			foreach(var friend in Program.Helper.OwnTeam.Where(hero => hero.Distance(ObjectManager.Player) <= spell.Range).Where(friend => friend.Health / friend.MaxHealth * 100 <= percent && Utility.CountEnemysInRange(1000) >= 1))
+            foreach (var friend in Program.Helper.OwnTeam.Where(hero => hero.Distance(ObjectManager.Player) <= spell.Range).Where(friend => friend.Health / friend.MaxHealth * 100 <= percent && Utility.CountEnemiesInRange(1000) >= 1))
 			{
 				if (skillshot)
 					spell.Cast(friend.Position, Packets());
@@ -221,7 +221,8 @@ namespace UltimateCarry
         {
             if(!spell.IsReady() || !ManaManagerAllowCast(spell))
                 return false;
-            if(Utility.CountEnemysInRange((int)spell.Range + (int)extrarange) < count)
+
+            if (Utility.CountEnemiesInRange((int)spell.Range + (int)extrarange) < count)
                 return false;
             spell.Cast();
             return true;

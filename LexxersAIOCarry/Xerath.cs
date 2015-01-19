@@ -112,7 +112,7 @@ namespace UltimateCarry
 				return;
 			if (!R.IsReady() && !IsShooting() )
 				return;
-			if (Utility.CountEnemysInRange(Program.Menu.Item("useR_safe").GetValue<Slider>().Value) >= 1 && !IsShooting())
+            if (Utility.CountEnemiesInRange(Program.Menu.Item("useR_safe").GetValue<Slider>().Value) >= 1 && !IsShooting())
 				return;
 			R.Range = GetRRange();
 			Obj_AI_Hero[] lowesttarget = {null};

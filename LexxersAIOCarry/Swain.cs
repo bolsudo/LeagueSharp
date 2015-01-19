@@ -149,7 +149,7 @@ namespace UltimateCarry
 				R.Cast();
 				return;
 			}
-			if(MinionManager.GetMinions(ObjectManager.Player.Position, R.Range,MinionTypes.All,MinionTeam.NotAlly ).Count + Utility.CountEnemysInRange((int)R.Range + 100) == 0 )
+            if (MinionManager.GetMinions(ObjectManager.Player.Position, R.Range, MinionTypes.All, MinionTeam.NotAlly).Count + Utility.CountEnemiesInRange((int)R.Range + 100) == 0)
 				R.Cast();
 		}
 
@@ -161,7 +161,7 @@ namespace UltimateCarry
 			if(ObjectManager.Player.HasBuff("SwainMetamorphism"))
 				return;
 
-			var countEnemy = Utility.CountEnemysInRange((int)R.Range);
+            var countEnemy = Utility.CountEnemiesInRange((int)R.Range);
 			if (countEnemy >= 1 && ManaManagerAllowCast(R))
 			{
 				R.Cast();
