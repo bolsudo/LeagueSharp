@@ -24,7 +24,7 @@ namespace UltimateCarry
 		private static void Game_OnGameLoad(EventArgs args)
 		{
 			//AutoUpdater.InitializeUpdater();
-			Chat.Print("Ultimate Carry Version by Lexxes updated by Bolsudo for patch 4.21 loading ...");
+			Chat.Print("Ultimate Carry Version by Lexxes updated by Bolsudo for patch 5.2 loading ...");
 			Helper = new Helper();
 
 			Menu = new Menu("UltimateCarry", "UltimateCarry_" + ObjectManager.Player.ChampionName, true);
