@@ -36,7 +36,7 @@ namespace UltimateCarry
 			LoadSpells();
 
 			Drawing.OnDraw += Drawing_OnDraw;
-			Game.OnGameUpdate += Game_OnGameUpdate;
+			Game.OnUpdate += Game_OnUpdate;
 			GameObject.OnCreate += OnSpellCast;
 			PluginLoaded();
 		}
